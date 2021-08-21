@@ -43,6 +43,7 @@ public class DataManager : MonoBehaviour
     public void LoadData()
     {
         string jsonDataPath = Application.persistentDataPath + "/jsonSaveData.json";
+        Debug.Log(jsonDataPath);
         if (File.Exists(jsonDataPath))
         {
             string jsonData = File.ReadAllText(jsonDataPath);

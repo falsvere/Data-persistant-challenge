@@ -82,13 +82,20 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         m_GameOver = true;
-        DataManager.Instance.scores = m_Points;
+        if (m_Points > DataManager.Instance.scores)
+        {
+            DataManager.Instance.scores = m_Points;
+        }
         GameOverText.SetActive(true);
     }
 
     public void Exit()
     {
-        DataManager.Instance.scores = m_Points;
+
+        if (m_Points > DataManager.Instance.scores)
+        {
+            DataManager.Instance.scores = m_Points;
+        }
         DataManager.Instance.SaveData();
         SceneManager.LoadScene(0);
     }
